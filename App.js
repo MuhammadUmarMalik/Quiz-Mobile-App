@@ -1,20 +1,20 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView } from "react-native";
-
-// import { SafeAreaView } from "react-native-safe-area-context";
-import { AppNavigator } from "./src/navigation/AppNavigator";
-
-export default function App() {
+import { StyleSheet, Text, View, ActivityIndicator } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Main } from "./src/screens/Main";
+const App = () => {
   return (
-    <>
-      <SafeAreaView />
-      <StatusBar
-        backgroundColor={"black"}
-        barStyle={"dark-content"}
-        translucent={false}
-      />
-
-      <AppNavigator />
-    </>
+    <View style={style.container}>
+      <Main />
+    </View>
   );
-}
+};
+
+export default App;
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
