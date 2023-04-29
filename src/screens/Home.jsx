@@ -4,14 +4,15 @@ import {
   View,
   ActivityIndicator,
   Dimensions,
+  ImageBackground,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import Weather from "../components/Weather";
 import Searchbar from "../components/Searchbar";
-
+import { haze, rainy, snow, sunny } from "../assets/index";
 const API_KEY = "bb8e26bae4635b34e40ef5633ed11ea3";
 
-const Main = () => {
+const Home = () => {
   // states to manange data
   const [weatherData, setWeatherData] = useState();
   const [loading, setisLoading] = useState(true);
@@ -20,7 +21,7 @@ const Main = () => {
 
   async function fetchWeatherData(cityName) {
     setisLoading(false);
-    const API = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
+    const API = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}&units=metric`;
 
     try {
       const response = await fetch(API);
@@ -61,9 +62,17 @@ const Main = () => {
     );
   } else if (weatherData == null) {
     return (
-      <View>
-        <Searchbar fetchWeatherData={fetchWeatherData} />
-        <Text>City Not Found! Try Different City</Text>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <ImageBackground
+          source={haze}
+          style={style.backgroundImg}
+          resizeMode="cover"
+        >
+          <Searchbar fetchWeatherData={fetchWeatherData} />
+          <Text style={{ color: "white" }}>
+            City Not Found! Try Different City
+          </Text>
+        </ImageBackground>
       </View>
     );
   }
@@ -74,12 +83,18 @@ const Main = () => {
   );
 };
 
-export { Main };
+export { Home };
 
 const style = StyleSheet.create({
   container: {
     flex: 1,
     height: Dimensions.get("screen").height,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  backgroundImg: {
+    flex: 1,
+    width: Dimensions.get("screen").width,
     justifyContent: "center",
     alignItems: "center",
   },
