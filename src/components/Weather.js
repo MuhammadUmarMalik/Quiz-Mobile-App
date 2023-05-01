@@ -69,7 +69,7 @@ const Weather = ({ weatherData, fetchWeatherData }) => {
 
         <View
           style={{
-            marginTop: 100,
+            marginTop: 60,
             alignSelf: "flex-start",
             marginHorizontal: 20,
           }}
@@ -180,7 +180,7 @@ const Weather = ({ weatherData, fetchWeatherData }) => {
               alignItems: "center",
             }}
           >
-            <View style={{ marginTop: 15 }}>
+            <View style={{ marginTop: 5 }}>
               <Text
                 style={{
                   color: textColor,
@@ -254,7 +254,7 @@ const Weather = ({ weatherData, fetchWeatherData }) => {
                 {speed}
               </Text>
             </View>
-            <View style={{ marginTop: 15 }}>
+            <View style={{ marginTop: 5 }}>
               <Text
                 style={{
                   color: textColor,
