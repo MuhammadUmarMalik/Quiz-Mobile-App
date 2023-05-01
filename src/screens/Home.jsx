@@ -10,7 +10,7 @@ import React, { useState, useEffect } from "react";
 import Weather from "../components/Weather";
 import Searchbar from "../components/Searchbar";
 import { haze, rainy, snow, sunny } from "../assets/index";
-const API_KEY = "bb8e26bae4635b34e40ef5633ed11ea3";
+const API_KEY = "Your API Key insert here from openweatherapi";
 
 const Home = () => {
   // states to manange data
